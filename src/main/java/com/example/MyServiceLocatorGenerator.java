@@ -20,6 +20,7 @@ public class MyServiceLocatorGenerator extends ServiceLocatorGeneratorImpl {
         }
         initGuiceIntoHK2Bridge(serviceLocator, injector);
 
+        System.out.println("ServiceLocator created " + name);
         return serviceLocator;
     }
 

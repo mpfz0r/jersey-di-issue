@@ -29,6 +29,6 @@ public class MyFilter implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         final boolean secure = requestContext.getSecurityContext().isSecure();
-        System.out.println("FOO " + myService);
+        System.out.println("myservice " + myService);
     }
 }

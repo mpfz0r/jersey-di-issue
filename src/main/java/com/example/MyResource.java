@@ -32,6 +32,6 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        return "Got it!" + myService.toString() + myService2.toString();
+        return "Got request. myService " + myService.toString() + " myservice2 " + myService2.toString();
     }
 }

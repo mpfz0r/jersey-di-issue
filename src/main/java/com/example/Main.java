@@ -32,11 +32,11 @@ public class Main {
         // in com.example package
         final ResourceConfig rc = new ResourceConfig().packages("com.example").register(MyFeature.class);
 
-        IntStream.range(0, 300).forEachOrdered(n -> {
-            Resource.Builder resourceBuilder = Resource.builder(MyResource.class).path("moo" + String.valueOf(n));
+        // Create 400 fake resources to illustrate the performance impact
+        IntStream.range(1, 400).forEachOrdered(n -> {
+            Resource.Builder resourceBuilder = Resource.builder(MyResource.class).path("resource" + String.valueOf(n));
             rc.registerResources(resourceBuilder.build());
         });
-
 
 
         // create and start a new instance of grizzly http server
@@ -52,8 +52,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
 
-        System.out.println(String.format("Jersey app started with WADL available at "
-                + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
+        System.out.println(String.format("Jersey app started at "
+                + "%sresource1\nHit enter to stop it...", BASE_URI));
         System.in.read();
         server.stop();
     }
